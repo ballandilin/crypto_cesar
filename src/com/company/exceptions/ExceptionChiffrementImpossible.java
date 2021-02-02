@@ -1,6 +1,10 @@
 package com.company.exceptions;
 
-public class ExceptionChiffrementImpossible {
-    public ExceptionChiffrementImpossible(Algorithme algo) {
+import com.company.algorithmes.chiffrement.Algorithme;
+
+public class ExceptionChiffrementImpossible extends ExceptionCryptographie {
+
+    public ExceptionChiffrementImpossible() {
+        super("ErreurChiffrement", "Chiffrement impossible");
     }
 }
