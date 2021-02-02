@@ -28,13 +28,17 @@ public class MessageString implements Message {
         }
     }
 
-    public ArrayList<Integer> getListAsciiCode(){
-        ArrayList<Integer> asciiList = new ArrayList<Integer>();
+    public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible{
+        try {
+            ArrayList<Integer> asciiList = new ArrayList<Integer>();
 
-        for (char letter : this.message.toCharArray()) {
-            asciiList.add((int)(letter));
+            for (char letter : this.message.toCharArray()) {
+                asciiList.add((int) (letter));
+            }
+
+            return asciiList;
+        } catch (Exception e) {
+            throw new ExceptionConversionImpossible();
         }
-
-        return asciiList;
     }
 }
