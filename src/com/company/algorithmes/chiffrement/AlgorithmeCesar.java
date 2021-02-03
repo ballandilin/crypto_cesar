@@ -8,6 +8,15 @@ import com.company.exceptions.ExceptionChiffrementImpossible;
 import static java.lang.Math.abs;
 
 public class AlgorithmeCesar implements Algorithme{
+
+    /**
+     * méthode permettant de chiffrer un message grace a la méthode de cesar
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return
+     * @throws ExceptionChiffrementImpossible
+     */
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionChiffrementImpossible {
         Message cryptedMsg = null;
@@ -46,6 +55,14 @@ public class AlgorithmeCesar implements Algorithme{
         }
     }
 
+    /**
+     * méthode permettant de dechiffrer un message chiffrer grace a la méthode de cesar
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return
+     * @throws ExceptionChiffrementImpossible
+     */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionChiffrementImpossible {
         Message decryptedMsg = null;
@@ -69,7 +86,7 @@ public class AlgorithmeCesar implements Algorithme{
 
                 } else if((currentLetter >= 'A') && (currentLetter <= 'Z')) {
                     currentLetter -= 'A';
-                    decryptLetter = (char) ((currentLetter - clesPrivees.getCle("cleCesar").asInteger()) % 26);
+                    decryptLetter = (char) ((currentLetter - clesPrivees.getCle("cleCesar").asInteger()));
                     decryptLetter += 'A';
                     if ((int)decryptLetter < 65 || (int)decryptLetter > 90) {
                         decryptLetter += 26;

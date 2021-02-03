@@ -1,5 +1,9 @@
 package com.company.algorithmes.chiffrement.algorithmetransposition;
 
+
+/**
+ * Class permettant de creer des Couple avec un caractere et une position
+ */
 public class Couple {
 
     private char caractere = 0;
@@ -11,9 +15,14 @@ public class Couple {
     }
 
 
+
+    // ##################### Getter et Setter ########################
+
+
     public char getCaractere() {
         return caractere;
     }
+
 
     public void setCaractere(char caractere) {
         this.caractere = caractere;

@@ -11,6 +11,10 @@ import com.company.entites.Univers;
 import com.company.exceptions.ExceptionAlgorithmeNonDefini;
 import com.company.exceptions.ExceptionConversionImpossible;
 
+
+/**
+ * Class permettant de gérer le cryptogramme de Cesar
+ */
 public class ProtocoleCesar implements Protocole {
 
     private Personne alice = new Personne("Alice");

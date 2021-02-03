@@ -4,7 +4,9 @@ import com.company.donnees.cles.Cles;
 import com.company.donnees.messages.Message;
 import com.company.exceptions.ExceptionChiffrementImpossible;
 
-
+/**
+ * Interface permettant de gérer les Algorithme
+ */
 public interface Algorithme {
     String nom = "";
 

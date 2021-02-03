@@ -2,6 +2,9 @@ package com.company.utils;
 
 import java.util.Random;
 
+/**
+ * Class permettant de renvoyer un nombre aleatoire entre un minimum et un maximum
+ */
 public class RandNum {
 
     public int getRandomNumberInRange(int min, int max) {

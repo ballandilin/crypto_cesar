@@ -13,6 +13,10 @@ import com.company.entites.Univers;
 import com.company.exceptions.ExceptionAlgorithmeNonDefini;
 import com.company.exceptions.ExceptionConversionImpossible;
 
+
+/**
+ * Class permettant de gérer le cryptogramme de Transposition
+ */
 public class ProtocoleTransposition implements Protocole{
 
 

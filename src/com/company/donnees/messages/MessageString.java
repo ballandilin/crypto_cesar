@@ -4,6 +4,10 @@ import com.company.exceptions.ExceptionConversionImpossible;
 
 import java.util.ArrayList;
 
+
+/**
+ * Class implementant l'interface Message et gérant les Message en Chaine de caractere
+ */
 public class MessageString implements Message {
 
     private String message = "";
@@ -12,6 +16,11 @@ public class MessageString implements Message {
         this.message = message;
     }
 
+    /**
+     * Renvoie le message en chaine de caractere si possible
+     * @return le message en chaine de caractere
+     * @throws ExceptionConversionImpossible
+     */
     public String asString() throws ExceptionConversionImpossible{
         try {
             return String.valueOf(this.message);
@@ -20,6 +29,12 @@ public class MessageString implements Message {
         }
     }
 
+
+    /**
+     * Renvoie le message en entier si possible
+     * @return le message en entier
+     * @throws ExceptionConversionImpossible
+     */
     public Integer asInteger() throws ExceptionConversionImpossible{
         try {
             return Integer.valueOf(this.message);
@@ -28,6 +43,11 @@ public class MessageString implements Message {
         }
     }
 
+    /**
+     * Renvoie un tableau d'entier correspondant au caractere du message
+     * @return tableau d'entier
+     * @throws ExceptionConversionImpossible
+     */
     public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible{
         try {
             ArrayList<Integer> asciiList = new ArrayList<Integer>();

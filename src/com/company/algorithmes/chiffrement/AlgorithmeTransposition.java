@@ -20,6 +20,14 @@ public class AlgorithmeTransposition implements Algorithme{
 
     private SecureRandom generateur = new SecureRandom();
 
+    /**
+     * Methode permettant de chiffrer un message par transposition
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return
+     * @throws ExceptionChiffrementImpossible
+     */
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionChiffrementImpossible {
         try {
@@ -27,6 +35,7 @@ public class AlgorithmeTransposition implements Algorithme{
             String res = "";
             ArrayList<Integer> ordre = getOrdreColonne(clesPrivees.getCle("cleTransposition"));
 
+            // on lit le tableau colonnes par colonnes suivant l'ordre obtenue er on le stock dans une variable
             for (int index : ordre) {
                 for (int j = 0; j < (tableauChiffrement.length); j++) {
                     res += tableauChiffrement[j][index];
@@ -39,6 +48,15 @@ public class AlgorithmeTransposition implements Algorithme{
         return null;
     }
 
+
+    /**
+     * Methode permettant de dechiffrer un message chiffrer par transposition
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return
+     * @throws ExceptionChiffrementImpossible
+     */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionChiffrementImpossible {
         try {
@@ -48,12 +66,17 @@ public class AlgorithmeTransposition implements Algorithme{
             ArrayList<Integer> ordre = getOrdreColonne(clesPrivees.getCle("cleTransposition"));
             int indexMsg = 0;
 
+
+            // on remplit le tableau avec le message reçu, colonne par
+            //colonne, dans l’ordre obtenu avec la methode
+            // getOrdreColonne
             for (int index : ordre) {
                 for (int j = 0; j < (tableauChiffrement.length); j++) {
                     tableauChiffrement[j][index] = msg[indexMsg++];
                 }
             }
 
+            // on lit le tableau ligne a ligne pour obtenir le message déchiffré
             for (int i = 0; i < tableauChiffrement.length; i++) {
                 for (int j = 0; j < (tableauChiffrement[0].length); j++) {
                     res += tableauChiffrement[i][j];
@@ -72,6 +95,17 @@ public class AlgorithmeTransposition implements Algorithme{
         return "AlgorithmeTransposition";
     }
 
+
+    // ############################ Methode privée #########################################
+
+    /**
+     * Permet de crée un tableau de
+     * caractères de la bonne taille et dele remplir avec le message.
+     * @param message
+     * @param cle
+     * @return tableau
+     * @throws ExceptionConversionImpossible
+     */
     private char[][] remplirTableauChiffrement(Message message, Cle cle) throws ExceptionConversionImpossible {
 
         ByteBuffer b = ByteBuffer.allocate(4) ;
@@ -87,11 +121,10 @@ public class AlgorithmeTransposition implements Algorithme{
         int decalage = 0;
         char[] msg = message.asString().toCharArray();
 
-
         tableau = remplirTableauChar(tableau);
 
-        for (int i = 0; i < tableau.length; i++) {
-            for (int j = 0; j < (tableau[0].length); j++) {
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbCol; j++) {
                 if (decalage < tailleMsg) {
                     tableau[i][j] = msg[decalage];
                     decalage++;
@@ -103,6 +136,13 @@ public class AlgorithmeTransposition implements Algorithme{
         return tableau;
     }
 
+    /**
+     * Renvoie l’ordre dans lequel lire les colonnes d’après la clé donnée en
+     * paramètre sous forme d’une liste d’entiers.
+     * @param cle
+     * @return ordre
+     * @throws ExceptionConversionImpossible
+     */
     private ArrayList<Integer> getOrdreColonne(Cle cle) throws ExceptionConversionImpossible {
         ArrayList<Couple> listeCouple = new ArrayList<>();
         ArrayList<Integer> ordre = new ArrayList<>();
@@ -123,20 +163,33 @@ public class AlgorithmeTransposition implements Algorithme{
         return ordre;
     }
 
+    /**
+     * Permet de générer aleatoirement un caractere de bourrage.
+     * Le caractere se situe entre a..z et A..Z
+     * @return un caractere
+     */
     private char bourrage() {
-        int leftLimit = 65; // lettre 'A'
-        int rightLimit = 122; // lettre 'z'
-        int tailleString = 1;
+        int min = 65; // lettre 'A'
+        int max = 122; // lettre 'z'
+        int tailleString = 1; // un seul caractere
 
-        String generateRandChar = this.generateur.ints(leftLimit, rightLimit + 1)
+        // l'utilisation de filter permet de ne recuperer que les caracteres que l'on souhaite
+        String generateRandString = this.generateur.ints(min, max + 1)
                 .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
                 .limit(tailleString)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
 
-        return generateRandChar.toCharArray()[0];
+
+        // c'est pas incroyable
+        return generateRandString.toCharArray()[0];
     }
 
+    /**
+     * Permet de remplir le tableau avec des caracteres de bourrage
+     * @param tableau
+     * @return
+     */
     private char[][] remplirTableauChar(char[][] tableau) {
         for (int i = 0; i < tableau.length; i++) {
             for (int j = 0; j < (tableau[0].length); j++) {

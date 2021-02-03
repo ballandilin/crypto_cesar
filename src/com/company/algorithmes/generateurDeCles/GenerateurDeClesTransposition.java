@@ -7,6 +7,12 @@ import com.company.donnees.cles.Cles;
 import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 
+
+/**
+ * Class implementant l'interface GenerateurDeCles,
+ * elle permet de générer une Cle Publique ou une Cle Privee
+ * pour l'algorithme de Transposition
+ */
 public class GenerateurDeClesTransposition implements GenerateurDeCles{
 
     private int tailleId = 0;
@@ -16,11 +22,20 @@ public class GenerateurDeClesTransposition implements GenerateurDeCles{
         this.tailleId = tailleId;
     }
 
+    /**
+     * Pas encore implémenté
+     * @return
+     */
     @Override
     public Cles genererClePublique() {
         return null;
     }
 
+    /**
+     * Renvoie une Cles identider par une
+     * chaine de caractere généré aleatoirement
+     * @return cles
+     */
     @Override
     public Cles genererClePrivee() {
         Cle cle = new CleString(this.RandString());
@@ -28,22 +43,28 @@ public class GenerateurDeClesTransposition implements GenerateurDeCles{
 
         cles.addCle("cleTransposition", cle);
 
-
         return cles;
     }
 
+
+    /**
+     * Renvoie une chaine de caractere contenant les caractere
+     * de a..z et A..Z
+     * @return generateRandString
+     */
     private String RandString() {
-        int leftLimit = 65; // lettre 'A'
-        int rightLimit = 122; // lettre 'z'
+        int min = 65; // lettre 'A'
+        int max = 122; // lettre 'z'
         int tailleString = this.tailleId;
 
-        String generateRandChar = this.generateur.ints(leftLimit, rightLimit + 1)
+        // l'utilisation de filter permet de ne recuperer que les caracteres que l'on souhaite
+        String generateRandString = this.generateur.ints(min, max + 1)
                 .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
                 .limit(tailleString)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
 
 
-        return generateRandChar;
+        return generateRandString;
     }
 }

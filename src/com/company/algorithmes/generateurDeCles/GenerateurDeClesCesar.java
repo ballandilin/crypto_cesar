@@ -4,6 +4,12 @@ import com.company.donnees.cles.CleInteger;
 import com.company.donnees.cles.Cles;
 import com.company.utils.RandNum;
 
+
+/**
+ * Class implementant l'interface GenerateurDeCles,
+ * elle permet de générer une Cle Publique ou une Cle Privee
+ * pour l'algorithme de Cesar
+ */
 public class GenerateurDeClesCesar implements GenerateurDeCles{
 
     private Integer randNum = 0;
@@ -14,10 +20,18 @@ public class GenerateurDeClesCesar implements GenerateurDeCles{
     }
 
 
+    /**
+     * Pas implementé
+     * @return null
+     */
     public Cles genererClePublique() {
         return null;
     }
 
+    /**
+     * Renvoie une Cles privée generé par un nombre aléatoire
+     * @return cle
+     */
     public Cles genererClePrivee() {
         Cles cle = new Cles();
 
