@@ -5,7 +5,7 @@ import com.company.donnees.messages.Message;
 
 import java.util.HashMap;
 
-public final class Univers {
+public class Univers {
 
     private static HashMap<String, Cles> listeClesPubliques = new HashMap<String, Cles>();
     private static HashMap<String, Message> listeMessagesPublics = new HashMap<String, Message>();
@@ -33,4 +33,5 @@ public final class Univers {
     public static Message getMessage(String identifiant) {
         return listeMessagesPublics.get(identifiant);
     }
+
 }

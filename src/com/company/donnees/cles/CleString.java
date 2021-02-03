@@ -6,6 +6,7 @@ public class CleString implements Cle{
 
     private String identifiant = "";
 
+
     public CleString(String identifiant) {
         this.identifiant = identifiant;
     }

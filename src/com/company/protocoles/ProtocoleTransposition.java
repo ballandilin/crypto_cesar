@@ -1,7 +1,9 @@
 package com.company.protocoles;
 
 import com.company.algorithmes.chiffrement.AlgorithmeCesar;
+import com.company.algorithmes.chiffrement.AlgorithmeTransposition;
 import com.company.algorithmes.generateurDeCles.GenerateurDeClesCesar;
+import com.company.algorithmes.generateurDeCles.GenerateurDeClesTransposition;
 import com.company.donnees.cles.Cle;
 import com.company.donnees.cles.Cles;
 import com.company.donnees.messages.Message;
@@ -11,12 +13,13 @@ import com.company.entites.Univers;
 import com.company.exceptions.ExceptionAlgorithmeNonDefini;
 import com.company.exceptions.ExceptionConversionImpossible;
 
-public class ProtocoleCesar implements Protocole {
+public class ProtocoleTransposition implements Protocole{
+
 
     private Personne alice = new Personne("Alice");
     private Personne bob = new Personne("Bob");
-    private GenerateurDeClesCesar genClesPrivees = new GenerateurDeClesCesar();
-    private AlgorithmeCesar algoCesar = new AlgorithmeCesar();
+    private GenerateurDeClesTransposition genClesPrivees = new GenerateurDeClesTransposition(10);
+    private AlgorithmeTransposition algoTransposition = new AlgorithmeTransposition();
     private Univers univers = new Univers();
     private Cles clePrivee = new Cles();
     private Message messageAlice = null;
@@ -26,15 +29,15 @@ public class ProtocoleCesar implements Protocole {
     @Override
     public void executer() {
         System.out.println("##################################################################");
-        System.out.println("################### Protocole Cesar ##############################");
+        System.out.println("###############Protocole Transposition ###########################");
         System.out.println("##################################################################");
 
 
-        messageAlice = new MessageString("J'ai un peu galéré quand même");
+        messageAlice = new MessageString("J'ai un peu galéré quand même, mais se fut drole?!");
 
         // assignation des Algos
-        alice.setAlgorithme(algoCesar);
-        bob.setAlgorithme(algoCesar);
+        alice.setAlgorithme(algoTransposition);
+        bob.setAlgorithme(algoTransposition);
 
         // attribution des Cles Privees
         clePrivee = genClesPrivees.genererClePrivee();
@@ -49,7 +52,7 @@ public class ProtocoleCesar implements Protocole {
 
             System.out.println("Message chiffré de Alice : " + messageAlice.asString() + "\n");
 
-            System.out.println("Message déchiffré de Bob : " + messageBob.asString()  + "\n");
+            System.out.println("Message déchiffré de Bob : " + messageBob.asString() + "\n");
 
         } catch (ExceptionAlgorithmeNonDefini | ExceptionConversionImpossible exceptionAlgorithmeNonDefini) {
             exceptionAlgorithmeNonDefini.printStackTrace();

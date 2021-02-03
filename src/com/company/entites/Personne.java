@@ -26,8 +26,9 @@ public class Personne {
         try {
             return algorithme.chiffrer(message, clesPubliques, this.clesPrivees);
         } catch (Exception e) {
-            throw new ExceptionAlgorithmeNonDefini();
+            System.out.println(e);
         }
+        return null;
     }
 
     /**
@@ -41,8 +42,9 @@ public class Personne {
         try {
             return algorithme.dechiffrer(message, clesPubliques, this.clesPrivees);
         } catch (Exception e) {
-            throw new ExceptionAlgorithmeNonDefini();
+            System.out.println(e);
         }
+        return message;
     }
 
 //*******************  Setter et Getter *******************
@@ -56,8 +58,8 @@ public class Personne {
         return algorithme;
     }
 
-    public void setAlgorithme(Algorithme algorithm) {
-        this.algorithme = algorithm;
+    public void setAlgorithme(Algorithme algorithme) {
+        this.algorithme = algorithme;
     }
 
 

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -28,11 +29,8 @@ public class TrieListeCoupleTest {
         for(Couple c : listeCouple) {
             result += c.getCaractere() + Integer.toString(c.getPosition());
         }
-
+        System.out.println(result);
         assertEquals("H1L3L4e2o5", result);
-    }
-
-    private void assertEquals(String h1L3L4e2o5, String result) {
     }
 
 }
