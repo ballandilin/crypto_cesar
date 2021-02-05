@@ -20,6 +20,11 @@ public class GenerateurDeClesSubstitution implements GenerateurDeCles{
         return null;
     }
 
+    /**
+     * génère une clé correspondant à une
+     * permutation aléatoire de l’alphabet
+     * @return
+     */
     @Override
     public Cles genererClePrivee() {
         Cles cles = new Cles();
@@ -28,10 +33,12 @@ public class GenerateurDeClesSubstitution implements GenerateurDeCles{
         String alphaString = "";
 
 
+        // on creer une liste contenant tout l'alphabet
         for (int i = 65; i < 91; i++) {
             alphabet.add((char)i);
         }
 
+        // on melange l'alphabet
         Collections.shuffle(alphabet, this.generateur);
 
         for (char l : alphabet) {

@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.protocoles.Protocole;
-import com.company.protocoles.ProtocoleCesar;
-import com.company.protocoles.ProtocoleTransposition;
-import com.company.protocoles.ProtocoleVigenere;
+import com.company.protocoles.*;
 
 public class Main {
 
@@ -18,5 +15,8 @@ public class Main {
 
         Protocole protVigenere = new ProtocoleVigenere();
         protVigenere.executer();
+
+        Protocole protSubstition = new ProtocoleSubstitution();
+        protSubstition.executer();
     }
 }
