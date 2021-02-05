@@ -35,7 +35,7 @@ public class AlgorithmeTransposition implements Algorithme{
             String res = "";
             ArrayList<Integer> ordre = getOrdreColonne(clesPrivees.getCle("cleTransposition"));
 
-            // on lit le tableau colonnes par colonnes suivant l'ordre obtenue er on le stock dans une variable
+            // on lit le tableau colonnes par colonnes suivant l'ordre obtenue et on le stock dans une variable
             for (int index : ordre) {
                 for (int j = 0; j < (tableauChiffrement.length); j++) {
                     res += tableauChiffrement[j][index];
