@@ -38,7 +38,7 @@ public class GenerateurDeClesTransposition implements GenerateurDeCles{
      */
     @Override
     public Cles genererClePrivee() {
-        Cle cle = new CleString(this.RandString());
+        Cle cle = new CleString(this.RandString(this.tailleId));
         Cles cles = new Cles();
 
         cles.addCle("cleTransposition", cle);
@@ -52,10 +52,10 @@ public class GenerateurDeClesTransposition implements GenerateurDeCles{
      * de a..z et A..Z
      * @return generateRandString
      */
-    private String RandString() {
+    private String RandString(int taille) {
         int min = 65; // lettre 'A'
         int max = 122; // lettre 'z'
-        int tailleString = this.tailleId;
+        int tailleString = taille;
 
         // l'utilisation de filter permet de ne recuperer que les caracteres que l'on souhaite
         String generateRandString = this.generateur.ints(min, max + 1)

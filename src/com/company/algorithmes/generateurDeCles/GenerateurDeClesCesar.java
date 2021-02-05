@@ -2,7 +2,7 @@ package com.company.algorithmes.generateurDeCles;
 
 import com.company.donnees.cles.CleInteger;
 import com.company.donnees.cles.Cles;
-import com.company.utils.RandNum;
+import com.company.utils.RandThings;
 
 
 /**
@@ -15,7 +15,7 @@ public class GenerateurDeClesCesar implements GenerateurDeCles{
     private Integer randNum = 0;
 
     public GenerateurDeClesCesar() {
-        this.randNum = new RandNum().getRandomNumberInRange(0, 25);
+        this.randNum = new RandThings().getRandomNumberInRange(0, 25);
         System.out.println(this.randNum);
     }
 
