@@ -14,7 +14,6 @@ import java.util.Random;
 public class GenerateurDeClesSubstitution implements GenerateurDeCles{
 
     private SecureRandom generateur = new SecureRandom();
-    private Random rand = new Random();
 
     @Override
     public Cles genererClePublique() {
@@ -33,7 +32,7 @@ public class GenerateurDeClesSubstitution implements GenerateurDeCles{
             alphabet.add((char)i);
         }
 
-        Collections.shuffle(alphabet);
+        Collections.shuffle(alphabet, this.generateur);
 
         for (char l : alphabet) {
             alphaString += l;
