@@ -1,19 +1,10 @@
 package com.company.algorithmes.chiffrement;
 
-import com.company.algorithmes.chiffrement.algorithmetransposition.ComparateurCouple;
-import com.company.algorithmes.chiffrement.algorithmetransposition.Couple;
-import com.company.donnees.cles.Cle;
 import com.company.donnees.cles.Cles;
 import com.company.donnees.messages.Message;
 import com.company.donnees.messages.MessageString;
 import com.company.exceptions.ExceptionChiffrementImpossible;
-import com.company.exceptions.ExceptionConversionImpossible;
 
-import java.nio.ByteBuffer;
-import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
 
 public class AlgorithmeVigenere implements Algorithme{
 

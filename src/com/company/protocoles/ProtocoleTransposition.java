@@ -35,7 +35,7 @@ public class ProtocoleTransposition implements Protocole{
         System.out.println("##################################################################");
         System.out.println("###############Protocole Transposition ###########################");
         System.out.println("##################################################################");
-
+        System.out.println();
 
         messageAlice = new MessageString("J'ai un peu galéré quand même, mais se fut drole?!");
 

@@ -1,7 +1,7 @@
 package com.company.protocoles;
 
-import com.company.algorithmes.chiffrement.AlgorithmeTransposition;
-import com.company.algorithmes.generateurDeCles.GenerateurDeClesTransposition;
+import com.company.algorithmes.chiffrement.AlgorithmeVigenere;
+import com.company.algorithmes.generateurDeCles.GenerateurDeClesVigenere;
 import com.company.donnees.cles.Cles;
 import com.company.donnees.messages.Message;
 import com.company.donnees.messages.MessageString;
@@ -15,8 +15,8 @@ public class ProtocoleVigenere implements Protocole{
 
     private Personne alice = new Personne("Alice");
     private Personne bob = new Personne("Bob");
-    private GenerateurDeClesTransposition genClesPrivees = new GenerateurDeClesTransposition(10);
-    private AlgorithmeTransposition algoTransposition = new AlgorithmeTransposition();
+    private GenerateurDeClesVigenere genClesPrivees = new GenerateurDeClesVigenere(10);
+    private AlgorithmeVigenere algoTransposition = new AlgorithmeVigenere();
     private Univers univers = new Univers();
     private Cles clePrivee = new Cles();
     private Message messageAlice = null;
@@ -26,11 +26,12 @@ public class ProtocoleVigenere implements Protocole{
     @Override
     public void executer() {
         System.out.println("##################################################################");
-        System.out.println("###############Protocole Transposition ###########################");
+        System.out.println("###############Protocole VIEGENERE ###########################");
         System.out.println("##################################################################");
 
+        System.out.println();
 
-        messageAlice = new MessageString("J'ai un peu galéré quand même, mais se fut drole?!");
+        messageAlice = new MessageString("I used to be an adventurer like you, then I took an arrow in the knee.");
 
         // assignation des Algos
         alice.setAlgorithme(algoTransposition);

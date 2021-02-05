@@ -32,7 +32,7 @@ public class ProtocoleCesar implements Protocole {
         System.out.println("##################################################################");
         System.out.println("################### Protocole Cesar ##############################");
         System.out.println("##################################################################");
-
+        System.out.println();
 
         messageAlice = new MessageString("J'ai un peu galéré quand même");
 

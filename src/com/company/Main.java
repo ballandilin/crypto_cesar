@@ -3,6 +3,7 @@ package com.company;
 import com.company.protocoles.Protocole;
 import com.company.protocoles.ProtocoleCesar;
 import com.company.protocoles.ProtocoleTransposition;
+import com.company.protocoles.ProtocoleVigenere;
 
 public class Main {
 
@@ -14,5 +15,8 @@ public class Main {
 
         Protocole protTransposition = new ProtocoleTransposition();
         protTransposition.executer();
+
+        Protocole protVigenere = new ProtocoleVigenere();
+        protVigenere.executer();
     }
 }
