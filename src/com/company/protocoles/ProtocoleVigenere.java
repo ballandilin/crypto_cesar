@@ -26,7 +26,7 @@ public class ProtocoleVigenere implements Protocole{
     @Override
     public void executer() {
         System.out.println("##################################################################");
-        System.out.println("###############Protocole VIEGENERE ###########################");
+        System.out.println("#################### Protocole VIEGENERE #########################");
         System.out.println("##################################################################");
 
         System.out.println();

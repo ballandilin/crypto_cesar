@@ -19,6 +19,11 @@ public class GenerateurDeClesVigenere implements GenerateurDeCles {
         return null;
     }
 
+    /**
+     * Méthode qui permet de générer une cle aleatoire
+     * de la taille donnée uniquement comosée de lettre majuscule.
+     * @return
+     */
     @Override
     public Cles genererClePrivee() {
         Cles cles = new Cles();
